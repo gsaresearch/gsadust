@@ -46,7 +46,6 @@ let info = function(i)
     }
   };
 };
-let showinfo = new p5(info);
 
 let graph = function(p)
 {
@@ -115,4 +114,3 @@ let graph = function(p)
     }
   };
 };
-let showgraph = new p5(graph);
