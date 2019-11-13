@@ -80,4 +80,3 @@ let table = function(p)
     }
   };
 };
-let showtable = new p5(table);
