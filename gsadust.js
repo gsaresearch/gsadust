@@ -91,3 +91,6 @@ let graph = function(p)
     }
   };
 };
+
+let showinfo = new p5(info);
+let showgraph = new p5(graph);
