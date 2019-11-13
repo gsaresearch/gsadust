@@ -82,11 +82,33 @@
 };
 let showtable = new p5(table);*/
 
+let conStart = 10;
+let conRange = 15;
+let mode = 1;
+
+function setup()
+{
+  let botton1, button2;
+  button1 = createButton('pm2.5');
+  button1.position(10, 50);
+  button1.mouseClicked(button1clicked);
+  button2 = createButton('pm10');
+  button2.position(10, 80);
+  button2.mouseClicked(button2clicked);
+}
+function button1clicked()
+  {
+    mode = 1;
+  };
+function button2clicked()
+  {
+    mode = 2;
+  };
+
 let graph = function(p)
 {
   let valueX = 0;
   let valueZ = 0;
-  let mode = 1;
   let value1;
   let value2;
   let value3;
@@ -102,8 +124,6 @@ let graph = function(p)
   p.setup = function()
   {
     p.createCanvas(700, 700, p.P2D);
-    
-    
   };
   
   p.draw = function()
@@ -121,7 +141,7 @@ let graph = function(p)
           latitude = -(row.getString(2)-35.22697222)*145945.6304*5/3 +600;
           longitude = (row.getString(3)-126.8471111)*118680.2753*5/3 +100;
           p.colorMode(p.HSB);
-          p.fill(255-10*concentration, 255, 255);
+          p.fill(255 -(concentration-conStart)*255/conRange, 255, 255);
           p.circle(longitude, latitude, 5);   
       }
     }
@@ -134,7 +154,7 @@ let graph = function(p)
           latitude = -(row.getString(2)-35.22697222)*145945.6304*5/3 +600;
           longitude = (row.getString(3)-126.8471111)*118680.2753*5/3 +100;
           p.colorMode(p.HSB);
-          p.fill(255-10*concentration, 255, 255);
+          p.fill(255 -(concentration-conStart)*255/conRange, 255, 255);
           p.circle(longitude, latitude, 5);
       }
     }
@@ -165,19 +185,20 @@ let info = function(i)
     i.fill(255);
     i.text('Color - Concentration', 10, 30);
     i.text('(㎍/㎥)', 130, 70);
-    i.text('0', 10, 85);
-    i.text('10', 10, 281);
-    i.text('20', 10, 477);
-    i.text('25.5', 10, 585);
+    i.text('10', 10, 85);
+    i.text('17.5', 10, 325);
+    i.text('25', 10, 585);
     
     i.noStroke();
     i.colorMode(i.HSB);
     let f, r;
-    for(f = 0; f < 500; ++f)
+    for(f = conStart; f < conStart+conRange; f += 0.01)
     {
-      i.stroke(255 - f/2, 255, 255);
-      i.line(50, f+80, 150, f+80);
+      i.stroke(255 -(f-conStart)*255/conRange, 255, 255);
+      i.line(50, (f-conStart)*500/conRange +80, 150, (f-conStart)*500/conRange +80);
     }
+    
   };
+  
 };
 let showinfo = new p5(info);
