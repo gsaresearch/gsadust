@@ -90,10 +90,10 @@ function setup()
 {
   let botton1, button2;
   button1 = createButton('pm2.5');
-  button1.position(10, 50);
+  button1.position(10, 100);
   button1.mouseClicked(button1clicked);
   button2 = createButton('pm10');
-  button2.position(10, 80);
+  button2.position(10, 130);
   button2.mouseClicked(button2clicked);
 }
 function button1clicked()
