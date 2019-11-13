@@ -61,7 +61,7 @@ let graph = function(p)
   {
     table1 = p.loadTable('0828_pm2.5.csv');
     table2 = p.loadTable('0828_pm10.csv');
-    map = p.loadImage('GSA.png');
+    map1 = p.loadImage('GSA.png');
   };
   
   p.setup = function()
@@ -72,7 +72,7 @@ let graph = function(p)
   p.draw = function()
   {
     p.background(0);
-    p.image(map, 100, 100, 500, 500);
+    p.image(map1, 100, 100, 500, 500);
 
     let row;
     if(mode === 1)
