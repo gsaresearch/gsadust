@@ -74,7 +74,7 @@ let graph = function(p)
     p.background(0);
     p.image(map1, 100, 100, 500, 500);
 
-    let row;
+    let row, concentration, latitude, longitude;
     if(mode === 1)
     {
       for(let l = 1; l < table1.getRowCount(); l++)
