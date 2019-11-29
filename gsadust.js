@@ -163,7 +163,7 @@ let graph = function(p)
     p.text('35.22697222°',10,600);
     p.text('경도(°)', 350, 620);
     p.text('126.8471111°',110,620);
-    p.text('126.8496389°',650,620);
+    p.text('126.8496389°',600,620);
 
     let row, concentration, latitude, longitude;
     if(mode === 1)
